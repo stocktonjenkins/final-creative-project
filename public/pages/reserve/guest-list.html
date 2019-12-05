@@ -1,0 +1,24 @@
+<div id="reserve">
+    <div class="containerRSVP">
+        <h1>Current Guest List</h1>
+        <div class="grid">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Size of Party</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="attendee in attendees">
+                        <td>{{ attendee.firstName }} {{ attendee.lastName }}</td>
+                        <td>{{ attendee.partySize }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<script src="js/reserve-script.js"></script>
