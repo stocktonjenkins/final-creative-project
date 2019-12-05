@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+test
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Don Juan Stocktín's</title>
+	<meta name="description" content="Blueprint: A basic template for a responsive multi-level menu" />
+	<meta name="keywords" content="blueprint, template, html, css, menu, responsive, mobile-friendly" />
+	<meta name="author" content="Codrops" />
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- food icons -->
+	<link rel="stylesheet" type="text/css" href="css/organicfoodicons.css" />
+	<!-- demo styles -->
+	<link rel="stylesheet" type="text/css" href="css/demo.css" />
+	<!-- menu styles -->
+	<link rel="stylesheet" type="text/css" href="css/component.css" />
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="js/modernizr-custom.js"></script>
+</head>
+
+<body>
+	<!-- Main container -->
+	<div class="container">
+		<!-- Blueprint header -->
+		<div class="dummy-logo">
+			<img src="img/TACO-512.png" class="dummy-icon foodicon" style="max-width: 100%; height:60%">
+			<h2 class="dummy-heading">Don Juan Stocktín's</h2>
+		</div>
+		<button class="action action--open" aria-label="Open Menu"><span class="icon icon--menu"></span></button>
+		<nav id="ml-menu" class="menu">
+			<button class="action action--close" aria-label="Close Menu"><span class="icon icon--cross"></span></button>
+			<div class="menu__wrap">
+				<ul data-menu="main" class="menu__level" tabindex="-1" role="menu" aria-label="All">
+					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-1" aria-owns="submenu-1" href="#">Menu & Events</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-2" aria-owns="submenu-2" href="#">Reviews</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-3" aria-owns="submenu-3" href="#">Reserve</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-4" aria-owns="submenu-4" href="#">About</a></li>
+				</ul>
+				<!-- Submenu 1 -->
+				<ul data-menu="submenu-1" id="submenu-1" class="menu__level" tabindex="-1" role="menu" aria-label="Menu">
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Menu</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Photos of Recent Events</a></li>
+				</ul>
+				<!-- Submenu 2 -->
+				<ul data-menu="submenu-2" id="submenu-2" class="menu__level" tabindex="-1" role="menu" aria-label="Fruits">
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Visitor Reviews</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Leave a Review</a></li>
+				</ul>
+				<!-- Submenu 3 -->
+				<ul data-menu="submenu-3" id="submenu-3" class="menu__level" tabindex="-1" role="menu" aria-label="Grains">
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">RSVP</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Current Guest List</a></li>
+				</ul>
+				<!-- Submenu 4 -->
+				<ul data-menu="submenu-4" id="submenu-4" class="menu__level" tabindex="-1" role="menu" aria-label="Mylk &amp; Drinks">
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Our Story</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Don Juan</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Don Stocktín</a></li>
+				</ul>
+			</div>
+		</nav>
+		<div class="content" id="includedContent">
+			<header class="bp-header cf">
+				<div class="bp-header__main">
+					<span class="bp-header__present">Non-Profit Taco Joint</span>
+					<h1 class="bp-header__title">Don Juan Stocktín's</h1>
+					<nav class="bp-nav">
+						<a class="bp-nav__item bp-icon bp-icon--prev" href="http://tympanus.net/Blueprints/PageStackNavigation/" data-info="previous Blueprint"><span>Previous Blueprint</span></a>
+						<!--a class="bp-nav__item bp-icon bp-icon--next" href="" data-info="next Blueprint"><span>Next Blueprint</span></a-->
+						<a class="bp-nav__item bp-icon bp-icon--drop" href="http://tympanus.net/codrops/?p=25521" data-info="back to the Codrops article"><span>back to the Codrops article</span></a>
+						<a class="bp-nav__item bp-icon bp-icon--archive" href="https://github.com/stocktonjenkins/final-creative-project" data-info="Github"><span>Github Repo</span></a>
+					</nav>
+				</div>
+			</header>
+			<p class="info">Welcome to Taco Tuesday</p>
+			<!-- Ajax loaded content here -->
+		</div>
+	</div>
+	<!-- /view -->
+	<script src="js/classie.js"></script>
+	<script src="js/main.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
+	<script>
+		/*global $*/
+		(function() {
+			var menuEl = document.getElementById('ml-menu'),
+				mlmenu = new MLMenu(menuEl, {
+					// breadcrumbsCtrl : true, // show breadcrumbs
+					// initialBreadcrumb : 'all', // initial breadcrumb text
+					backCtrl: false, // show back button
+					onItemClick: loadDummyData
+				});
+
+			// mobile menu toggle
+			var openMenuCtrl = document.querySelector('.action--open'),
+				closeMenuCtrl = document.querySelector('.action--close');
+
+			openMenuCtrl.addEventListener('click', openMenu);
+			closeMenuCtrl.addEventListener('click', closeMenu);
+
+			function openMenu() {
+				classie.add(menuEl, 'menu--open');
+				closeMenuCtrl.focus();
+			}
+
+			function closeMenu() {
+				classie.remove(menuEl, 'menu--open');
+				openMenuCtrl.focus();
+			}
+
+			var gridWrapper = document.querySelector('.content');
+
+			function loadDummyData(ev, itemName) {
+				ev.preventDefault();
+				closeMenu();
+				gridWrapper.innerHTML = '';
+				if (itemName == "Menu") {
+					console.log('menu selected');
+					$(document).ready(function() {
+						$('#includedContent').load("pages/menu/menu.html");
+					});
+				}
+				else if (itemName == "Photos of Recent Events") {
+					$(document).ready(function() {
+						$('#includedContent').load("pages/menu/photos.html");
+					});
+				}
+				else if (itemName == "Visitor Reviews") {
+					$(document).ready(function() {
+						$('#includedContent').load("pages/reviews/reviews.html");
+					});
+				}
+				else if (itemName == "Leave a Review") {
+					$(document).ready(function() {
+						$('#includedContent').load("pages/reviews/leave-review.html");
+					});
+				}
+				else if (itemName == "RSVP") {
+					$(document).ready(function() {
+						$('#includedContent').load("pages/reserve/rsvp.html");
+					});
+				}
+				else if (itemName == "Current Guest List") {
+					$(document).ready(function() {
+						$('#includedContent').load("pages/reserve/guest-list.html");
+					});
+				}
+				else if (itemName == "Our Story") {
+					$(document).ready(function() {
+						$('#includedContent').load("pages/about/our-story.html");
+					});
+				}
+				else if (itemName == "Don Juan") {
+					$(document).ready(function() {
+						$('#includedContent').load("pages/about/john.html");
+					});
+				}
+				else if (itemName == "Don Stocktín") {
+					$(document).ready(function() {
+						$('#includedContent').load("pages/about/stockton.html");
+					});
+				}
+			}
+
+		})();
+	</script>
+</body>
+
+</html>
