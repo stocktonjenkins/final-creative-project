@@ -79,6 +79,8 @@ body {
     padding: 0 1.5rem;
 }
 
+
+
 /* FORM ELEMENTS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -297,4 +299,18 @@ footer span {
 .grid {
     display: grid;
     text-align: left;
+}
+
+.card {
+    box-shadow: 0 10px 12px 0 rgba(0, 0, 0, 0.2);
+    margin: 16px;
+    text-align: center;
+    background: var(--bodyColor);
+    border-radius: 10px;
+}
+
+.reviewMessage {
+    font-style: italic;
+    margin: 10px;
+    width: auto;
 }

@@ -1,1 +1,22 @@
-<p class="info">Reviews</p>
+<div id="review">
+    <div class=containerReview>
+        <h1>Reviews</h1>
+        <hr>
+        <div v-if="reviews.length == 0">
+            <p class="info">There are currently no reviews.</p>
+        </div>
+        <div v-else>
+            <div class="grid">
+                <div class="card" v-for="review in reviews">
+                    <p class="reviewMessage">
+                        "{{ review.review }}"
+                    </p>
+                    <h4>
+                        <i>-- {{ review.firstName }} {{ review.lastName }}</i>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/review.js"></script>
