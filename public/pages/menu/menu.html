@@ -1,1 +1,26 @@
-<p class="info">Menu</p>
+<div id="menu-list">
+    <div class="containerAbout">
+        <h1>Menu</h1>
+        <hr>
+        <br>
+        <div class="menu-container">
+            <div v-for="ingred in ingredients" class="row-about d-flex no-gutters card">
+                <div class="col-md-6 col-lg">
+                    <div class="img-about img d-flex align-items-stretch">
+                        <div class="img d-flex align-self-stretch align-items-center">
+                            <img class="menu-photo" v-bind:src="ingred.url">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 menu-description">
+                    <div class="justify-content-start">
+                        <p class="ingredients">
+                            {{ ingred.description }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/menu.js"></script>

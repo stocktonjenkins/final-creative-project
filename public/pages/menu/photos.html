@@ -1,1 +1,14 @@
-<p class="info">Photos</p>
+<div id="photos">
+    <div class="containerRSVP">
+        <h1>Photos</h1>
+        <hr>
+        <div v-if="photos.length == 0">
+            <p class="info">There are no photos to see.</p>
+        </div>
+        <div v-else>
+            <p class="info">Photos display here.</p>
+        </div>
+    </div>
+</div>
+
+<script src="js/photos.js"></script>

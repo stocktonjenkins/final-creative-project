@@ -72,6 +72,8 @@ body {
     margin: 1.5rem 0;
 }
 
+.containerMenu,
+.containerAbout,
 .containerRSVP,
 .containerReview {
     max-width: 800px;
@@ -313,4 +315,49 @@ footer span {
     font-style: italic;
     margin: 10px;
     width: auto;
+}
+
+.ingredients,
+.our-story {
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 1em 1em 0;
+    text-align: justify;
+    color: #47484c;
+}
+
+.ingredients {
+    text-align: center;
+    margin: 10px;
+    display: flex;
+}
+
+.john,
+.stockton {
+    width: 100%;
+    /* or any custom size */
+    height: 100%;
+    object-fit: contain;
+}
+
+.menu-photo {
+    width: 75%;
+    height: 75%;
+    margin: auto;
+    object-fit: contain;
+}
+
+h4,
+h1 {
+    text-align: center;
+}
+
+h4 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.menu-description {
+    margin-top: auto;
+    margin-bottom: auto;
 }
