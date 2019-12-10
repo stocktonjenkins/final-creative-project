@@ -61,6 +61,19 @@ app.get('/api/attendees', async(req, res) => {
     }
 });
 
+app.delete('/api/attendees/:id', async(req, res) => {
+    console.log("in delete: ", req.params.id);
+    try {
+        Attendee.deleteOne({ _id: req.params.id }, function(err) {
+            if (err) console.log(err);
+        });
+    }
+    catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+});
+
 /*-------------------REVIEWS-------------------------*/
 
 const reviewerSchema = new mongoose.Schema({
@@ -95,6 +108,19 @@ app.get('/api/reviews', async(req, res) => {
     try {
         let reviews = await Review.find();
         res.send(reviews);
+    }
+    catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+});
+
+app.delete('/api/reviews/:id', async(req, res) => {
+    console.log("in delete: ", req.params.id);
+    try {
+        Review.deleteOne({ _id: req.params.id }, function(err) {
+            if (err) console.log(err);
+        });
     }
     catch (error) {
         console.log(error);
